@@ -10,8 +10,13 @@
 #import "MovieListTableViewCell.h"
 #import "HeaderTableViewCell.h"
 #import "ApiManager.h"
-
+#import "UIImageView+AFNetworking.h"
+#import "UIButton+AFNetworking.h"
+#import "MovieViewController.h"
+#import "SessionsTableViewController.h"
+#import "MovieTableViewController.h"
 @interface MovieListTableViewController ()
+@property (nonatomic, strong) NSArray *movies;
 
 @end
 
@@ -19,12 +24,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = [self.cinema objectForKey:@"location"];
+
+    NSString *stringID = [self.cinema objectForKey:@"id" ];
+    int cinemaID = [stringID intValue];
       NSLog(@"Debug: Getting posts");
-    [[ApiManager sharedManager] getPostsInFeed:^(NSArray *posts) {
-        NSLog(@"Debug: Got posts, rendering tableview");
-        //self.posts = posts;
+    [[ApiManager sharedManager] getMoviesInCinema:(cinemaID) success:^(NSArray *movies) {
+        self.movies = movies;
         [self.tableView reloadData];
-    } failure:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"It failed");
+    }];
+
+    
+//    [[ApiManager sharedManager] getMovies:^(NSArray *movies) {
+//        self.movies = movies;
+//        [self.tableView reloadData];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"It failed");
+//    }];
+
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -50,28 +69,61 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 2;
+    return [self.movies count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    NSDictionary *movies = [self.movies objectAtIndex:indexPath.row];
     MovieListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"movie" forIndexPath:indexPath];
+   
     
      //Configure the cell...
-    [cell.poster setImage:[UIImage imageNamed:@"poster.jpg"] ];
-    [cell.title setText:@"Gone Girl"];
-    [cell.rating setText:@"Rating : 88"];
-     //cell.backgroundColor = [UIColor redColor];
-    [cell setBackgroundColor:[UIColor greenColor]];
+    
+    //[cell.poster setImage:[UIImage imageNamed:@"poster.jpg"] ];
+    NSURL *url = [NSURL URLWithString:[movies objectForKey:@"poster"]];
+    [cell.poster setImageWithURL:url];
+
+    UIImageView *backgroundPoster = [[UIImageView alloc] initWithFrame:cell.frame];
+    [backgroundPoster setImageWithURL:url];
+    cell.backgroundView = backgroundPoster;
+    cell.backgroundView.alpha = 0.1;
+    
+
+    
+    [cell.title setText:[movies objectForKey:@"title"]];
+
+    //convert rating to int
+    NSNumber *getRating = [movies objectForKey:@"tomato_meter"];
+    int rating = [getRating intValue];
+    
+    // fill rating
+    if (rating <= 0) {
+        [cell.rating setText:@"Rating is not available"];
+    }
+    else {
+        [cell.rating setText:[NSString stringWithFormat:@"Rating : %@",getRating]];
+    }
+    
+     //set background colour
+    if (rating >= 70) {
+        [cell setBackgroundColor:[UIColor colorWithRed:0 green:0.88 blue:0 alpha:0.3]];
+    }
+    else if (rating >= 40) {
+       [cell setBackgroundColor:[UIColor colorWithRed:0.8 green:0.7 blue:0.5 alpha:0.3]];
+    }
+    else {
+       [cell setBackgroundColor:[UIColor colorWithRed:0.88 green:0.2 blue:0.4 alpha:0.3]];
+    }
+    
 
     
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 100.0;
+    return 67.0;
 }
 
 -(UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -81,8 +133,25 @@
         [NSException raise:@"headerView == nil.." format:@"No cells with matching CellIdentifier loaded from your storyboard"];
     }
     [headerView.icon setImage:[UIImage imageNamed:@"owlicon.png"] ];
-    [headerView.cinemaName setText:@"Indooroopilly"];
+   
     return headerView;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showMovie"]) {
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        NSLog(@"selected row %li", (long)path.row);
+        
+        MovieTableViewController *movieView = [segue destinationViewController];
+        movieView.movie = [self.movies objectAtIndex:path.row];
+//         SessionsTableViewController *sessionView = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        //moviesView.cinema = [self.cinemas objectAtIndex:path.row];
+
+    }
+    
 }
 
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

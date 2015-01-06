@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DC0770B0-CD8C-433D-B7C2-6FA2805F6477</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MoviesOwl</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0F67D4EA3E566C9995F9937DDCD07A95C15ABEED</key>
+		<string>https://github.com/leinvaim/MoviesOwl.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MoviesOwl.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0F67D4EA3E566C9995F9937DDCD07A95C15ABEED</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/leinvaim/MoviesOwl.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0F67D4EA3E566C9995F9937DDCD07A95C15ABEED</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0F67D4EA3E566C9995F9937DDCD07A95C15ABEED</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MoviesOwl</string>
+		</dict>
+	</array>
+</dict>
+</plist>

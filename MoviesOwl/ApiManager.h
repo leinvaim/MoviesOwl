@@ -13,8 +13,12 @@
 
 + (id)sharedManager;
 
-- (void)getPostsInFeed:(void (^)(NSArray *posts))success
+- (void)getMoviesInCinema :(int) cinemaID
+                        success:(void (^)(NSArray *movies))success
                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+- (void)getCinemas:(void (^)(NSArray *movies))success
+          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 - (void)getPostsInExplore:(void (^)(NSArray *posts))success
                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
@@ -29,7 +33,7 @@
 - (void)getNotifications:(void (^)(NSArray *notifications))success
                  failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
-- (void)uploadNormalImage:(UIImage *)normalImage maskedImage:(UIImage *)maskedImage text:(NSString *)text;
+//- (void)uploadNormalImage:(UIImage *)normalImage maskedImage:(UIImage *)maskedImage text:(NSString *)text;
 
 - (void)likePost:(NSDictionary *)post
          success:(void (^)(NSDictionary *like))success

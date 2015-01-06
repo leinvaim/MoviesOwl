@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MovieListTableViewController : UITableViewController
-
+@property (strong, nonatomic) NSDictionary *cinema;
 @end

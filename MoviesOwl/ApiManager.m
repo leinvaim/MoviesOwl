@@ -30,42 +30,25 @@
 
 
 - (id)init {
-  if (self = [super init]) {
-      
-      NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
-      
-      [dateformate setDateFormat:@"YYYY-MM-dd"];
-      
-      NSString *date_String=[dateformate stringFromDate:[NSDate date]];
-
-//      
-//      var url = 'https://jsonp.nodejitsu.com/?url=http%3A%2F%2Fwww.eventcinemas.com.au%2' +
-//      'FSessionFilter%2FGetNowShowingMovies%3Fdate%3D' +
-//      dateService.getTodayString() + '%26cinemaIds%3D' + $scope.cinemaId;
-      
-      NSString *part1 =@"https://jsonp.nodejitsu.com/?url=http%3A%2F%2Fwww.eventcinemas.com.au%2FSessionFilter%2FGetNowShowingMovies%3Fdate%3D";
-      NSString *part2 = @"%26cinemaIds%3D48";
-      NSString *url1 = [part1 stringByAppendingString: date_String];
-      NSString *url = [url1 stringByAppendingString:part2];
-      
-      
-      NSURL *baseUrl = [NSURL URLWithString:url];
-    self.manager = [[AFHTTPRequestOperationManager manager] initWithBaseURL:baseUrl];
-    self.manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
-  }
-  return self;
+    if (self = [super init]) {
+        NSURL *baseUrl = [NSURL URLWithString:@"http://api.moviesowl.com/v1/"];
+        self.manager = [[AFHTTPRequestOperationManager manager] initWithBaseURL:baseUrl];
+        self.manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    }
+    return self;
 }
 
 
-- (void)getPostsInFeed:(void (^)(NSArray *posts))success
-               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+- (void)getMoviesInCinema:(int)cinemaId
+                  success:(void (^)(NSArray *movies))success
+                  failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
  
-  [self.manager GET:@"me/feed"
+    [self.manager GET:[NSString stringWithFormat:@"cinemas/%i/movies", cinemaId]
          parameters:nil
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              success(responseObject);
+              success([responseObject objectForKey:@"data"]);
             }
             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               NSLog(@"Error: Couldn't get posts in feed");
@@ -74,6 +57,24 @@
                 failure(operation, error);
               }
             }];
+}
+
+- (void)getCinemas:(void (^)(NSArray *movies))success
+          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    
+    [self.manager GET:@"cinemas"
+           parameters:nil
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  success([responseObject objectForKey:@"data"]);
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  NSLog(@"Error: Couldn't get posts in feed");
+                  NSLog(@"Error: %@", error);
+                  if(failure) {
+                      failure(operation, error);
+                  }
+              }];
 }
 
 - (void)getPostsInExplore:(void (^)(NSArray *posts))success
