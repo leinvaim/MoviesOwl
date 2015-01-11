@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface HeaderCollectionReusableView : UICollectionReusableView
-@property (weak, nonatomic) IBOutlet UIImageView *owlIcon;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bookButton;
+
 
 @end

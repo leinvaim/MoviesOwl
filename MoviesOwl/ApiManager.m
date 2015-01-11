@@ -45,6 +45,7 @@
                   failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
  
+//    [self.manager GET:[NSString stringWithFormat:@"cinemas/%i/movies?starting_after=1420887623", cinemaId]
     [self.manager GET:[NSString stringWithFormat:@"cinemas/%i/movies", cinemaId]
          parameters:nil
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -59,6 +60,25 @@
             }];
 }
 
+
+- (void)getShowing:(int)showId
+                  success:(void (^)(NSArray *seats))success
+                  failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    
+    [self.manager GET:[NSString stringWithFormat:@"showings/%i", showId]
+           parameters:nil
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  success([responseObject objectForKey:@"seats"]);
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  NSLog(@"Error: Couldn't get posts in feed");
+                  NSLog(@"Error: %@", error);
+                  if(failure) {
+                      failure(operation, error);
+                  }
+              }];
+}
 - (void)getCinemas:(void (^)(NSArray *movies))success
           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
@@ -76,6 +96,8 @@
                   }
               }];
 }
+
+
 
 - (void)getPostsInExplore:(void (^)(NSArray *posts))success
                   failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure

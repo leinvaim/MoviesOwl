@@ -16,10 +16,12 @@
 #import "SessionsTableViewController.h"
 #import "MovieTableViewController.h"
 #import "HeaderCollectionReusableView.h"
-
+#import "NoMoviesCollectionViewCell.h"
+@import UIKit;
 
 @interface MoviesListCollectionViewController ()
 @property (nonatomic, strong) NSArray *movies;
+
 @end
 
 @implementation MoviesListCollectionViewController
@@ -28,6 +30,14 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /*
+     defaultCinemaId = NSUserDefaults getValue@"defaultCinemaId"
+     if(!defaultCinemaId) {
+        performSegue:@"showCinemas";
+        return;
+     }
+     */
+
     self.title = [self.cinema objectForKey:@"location"];
     
     NSString *stringID = [self.cinema objectForKey:@"id" ];
@@ -47,6 +57,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+//    [self.collectionView registerClass:[NoMoviesCollectionViewCell class] forCellWithReuseIdentifier:@"test"];
+//        [self.collectionView registerClass:[MoviesListCollectionViewCell class] forCellWithReuseIdentifier:@"movieCell"];
     
     // Do any additional setup after loading the view.
 }
@@ -95,21 +107,45 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
         NSInteger numberOfMovies = [self.movies  count];
-//    if (numberOfMovies == 0) {
-//        return 1;
-//    }
+    if (self.movies && numberOfMovies == 0) {
+        return 1;
+    }
     return numberOfMovies;
 }
 
+-(CGSize) collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(self.view.frame.size.width / 2 - 5 - 2.5, self.view.frame.size.width * 0.7);
+//    return self.view.frame.size;
+}
+
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView
+                       layout:(UICollectionViewLayout*)collectionViewLayout
+       insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(5,5,5,5);   //t,l,b,r
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+
+    
+    if ([self.movies count] == 0) {
+        NoMoviesCollectionViewCell *noCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"test" forIndexPath:indexPath];
+        noCell.backgroundColor = [UIColor redColor];
+        noCell.noMovieLabel.text = @"No Movie Available";
+
+        return noCell;
+    }
+    else {
+        
+    
+    MoviesListCollectionViewCell  *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"movieCell" forIndexPath:indexPath];
     NSDictionary *movies = [self.movies objectAtIndex:indexPath.row];
     
-      MoviesListCollectionViewCell  *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"movieCell" forIndexPath:indexPath];
-//    if ([movies count] == 0) {
-//        cell.rating.text = @"NO MOVIES AVAILABLE";
-//        NSLog(@"im here");
-//        return cell;
-//    }
 
     // Configure the cell
     NSURL *url = [NSURL URLWithString:[movies objectForKey:@"poster"]];
@@ -121,26 +157,38 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // fill rating
     if (rating <= 0) {
-        [cell.rating setText:@"Rating is not available"];
+        [cell.rating setText:@""];
     }
     else {
-        [cell.rating setText:[NSString stringWithFormat:@"Rating : %@",getRating]];
+        [cell.rating setText:[NSString stringWithFormat:@"%@",getRating]];
     }
     
     //set background colour
     if (rating >= 70) {
-        [cell setBackgroundColor:[UIColor colorWithRed:0 green:0.88 blue:0 alpha:0.3]];
+        [cell.rating setBackgroundColor:[UIColor colorWithRed:40/255.0f green:226/255.0f blue:72/255.0f alpha:0.7f]];
     }
-    else if (rating >= 40) {
-        [cell setBackgroundColor:[UIColor colorWithRed:0.8 green:0.7 blue:0.5 alpha:0.3]];
+    else if (rating >= 50) {
+        [cell.rating setBackgroundColor:[UIColor colorWithRed:251/255.0f green:255/255.0f blue:28/255.0f  alpha:0.7f]];
     }
     else {
-        [cell setBackgroundColor:[UIColor colorWithRed:0.88 green:0.2 blue:0.4 alpha:0.3]];
+        [cell.rating setBackgroundColor:[UIColor colorWithRed:255/255.0f green:0/255.0f blue:4/255.0f alpha:0.7f]];
     }
     
-
+//    CGRect finalCellFrame = cell.frame;
+//    //check the scrolling direction to verify from which side of the screen the cell should come.
+//    CGPoint translation = [collectionView.panGestureRecognizer translationInView:collectionView.superview];
+//    if (translation.x > 0) {
+//        cell.frame = CGRectMake(finalCellFrame.origin.x - 1000, - 500.0f, 0, 0);
+//    } else {
+//        cell.frame = CGRectMake(finalCellFrame.origin.x + 1000, - 500.0f, 0, 0);
+//    }
+//    
+//    [UIView animateWithDuration:0.5f animations:^(void){
+//        cell.frame = finalCellFrame;
+//    }];
     
     return cell;
+    }
 }
 
 
@@ -167,6 +215,8 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     
 }
+
+
 
 #pragma mark <UICollectionViewDelegate>
 

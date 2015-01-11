@@ -12,12 +12,13 @@
 @interface MoviePlayingViewController ()
 @property (strong,nonatomic) UIActivityIndicatorView *activityIndicator;
 @end
-
+//NOTUSED
 @implementation MoviePlayingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning {

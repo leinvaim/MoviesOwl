@@ -10,4 +10,9 @@
 
 @interface SessionTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *session;
+@property (weak, nonatomic) IBOutlet UILabel *showType;
+@property (weak, nonatomic) IBOutlet UILabel *screenType;
+
+@property (weak, nonatomic) IBOutlet UILabel *seatCapacity;
+
 @end

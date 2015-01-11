@@ -13,21 +13,21 @@
 		A667EB9E1A2CA79A00DE5ADE /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A667EB9D1A2CA79A00DE5ADE /* ApiManager.m */; };
 		A6807D9A1A58CFD900D2DCF3 /* CinemaListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6807D991A58CFD900D2DCF3 /* CinemaListTableViewController.m */; };
 		A6807D9D1A58D0E800D2DCF3 /* CinemaListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6807D9C1A58D0E800D2DCF3 /* CinemaListTableViewCell.m */; };
-		A6807DA61A5945D900D2DCF3 /* SessionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6807DA51A5945D900D2DCF3 /* SessionsTableViewController.m */; };
 		A6807DA91A59468B00D2DCF3 /* SessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6807DA81A59468B00D2DCF3 /* SessionTableViewCell.m */; };
 		A6807DAD1A59499B00D2DCF3 /* MovieTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6807DAC1A59499B00D2DCF3 /* MovieTableViewController.m */; };
 		A6807DB51A5A74D900D2DCF3 /* MoviesListCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6807DB41A5A74D900D2DCF3 /* MoviesListCollectionViewController.m */; };
 		A6807DB81A5A756500D2DCF3 /* MoviesListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6807DB71A5A756500D2DCF3 /* MoviesListCollectionViewCell.m */; };
 		A6807DBB1A5A7B4000D2DCF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6807DB91A5A7B4000D2DCF3 /* Main.storyboard */; };
 		A6807DBE1A5A88F300D2DCF3 /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6807DBD1A5A88F300D2DCF3 /* HeaderCollectionReusableView.m */; };
-		A6807DC11A5AE30500D2DCF3 /* MoviePlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6807DC01A5AE30500D2DCF3 /* MoviePlayingViewController.m */; };
+		A6807DC51A5FBEE500D2DCF3 /* SeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6807DC41A5FBEE500D2DCF3 /* SeatViewController.m */; };
+		A6807DCB1A60050300D2DCF3 /* NoMoviesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6807DCA1A60050300D2DCF3 /* NoMoviesCollectionViewCell.m */; };
+		A6807DCE1A60343000D2DCF3 /* Seat.m in Sources */ = {isa = PBXBuildFile; fileRef = A6807DCD1A60343000D2DCF3 /* Seat.m */; };
 		A68961A21A29EF6300DC7E87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A68961A11A29EF6300DC7E87 /* main.m */; };
 		A68961A51A29EF6300DC7E87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A68961A41A29EF6300DC7E87 /* AppDelegate.m */; };
 		A68961B01A29EF6300DC7E87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A68961AF1A29EF6300DC7E87 /* Images.xcassets */; };
 		A68961B31A29EF6300DC7E87 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A68961B11A29EF6300DC7E87 /* LaunchScreen.xib */; };
 		A68961BF1A29EF6300DC7E87 /* MoviesOwlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A68961BE1A29EF6300DC7E87 /* MoviesOwlTests.m */; };
-		A68961CE1A29F89800DC7E87 /* MovieListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A68961CD1A29F89800DC7E87 /* MovieListTableViewCell.m */; };
-		A68961D11A29F9AE00DC7E87 /* MovieListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68961D01A29F9AE00DC7E87 /* MovieListTableViewController.m */; };
+		A6C2CB2C1A614E0300E5C630 /* MainTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C2CB2A1A614E0300E5C630 /* MainTest.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,12 +52,10 @@
 		A6807D991A58CFD900D2DCF3 /* CinemaListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CinemaListTableViewController.m; sourceTree = "<group>"; };
 		A6807D9B1A58D0E800D2DCF3 /* CinemaListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinemaListTableViewCell.h; sourceTree = "<group>"; };
 		A6807D9C1A58D0E800D2DCF3 /* CinemaListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CinemaListTableViewCell.m; sourceTree = "<group>"; };
-		A6807DA41A5945D900D2DCF3 /* SessionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsTableViewController.h; sourceTree = "<group>"; };
-		A6807DA51A5945D900D2DCF3 /* SessionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsTableViewController.m; sourceTree = "<group>"; };
 		A6807DA71A59468B00D2DCF3 /* SessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewCell.h; sourceTree = "<group>"; };
 		A6807DA81A59468B00D2DCF3 /* SessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewCell.m; sourceTree = "<group>"; };
 		A6807DAB1A59499B00D2DCF3 /* MovieTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieTableViewController.h; sourceTree = "<group>"; };
-		A6807DAC1A59499B00D2DCF3 /* MovieTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieTableViewController.m; sourceTree = "<group>"; };
+		A6807DAC1A59499B00D2DCF3 /* MovieTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieTableViewController.m; sourceTree = "<group>"; wrapsLines = 1; };
 		A6807DB31A5A74D900D2DCF3 /* MoviesListCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesListCollectionViewController.h; sourceTree = "<group>"; };
 		A6807DB41A5A74D900D2DCF3 /* MoviesListCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesListCollectionViewController.m; sourceTree = "<group>"; };
 		A6807DB61A5A756500D2DCF3 /* MoviesListCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesListCollectionViewCell.h; sourceTree = "<group>"; };
@@ -65,8 +63,12 @@
 		A6807DBA1A5A7B4000D2DCF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6807DBC1A5A88F300D2DCF3 /* HeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCollectionReusableView.h; sourceTree = "<group>"; };
 		A6807DBD1A5A88F300D2DCF3 /* HeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionReusableView.m; sourceTree = "<group>"; };
-		A6807DBF1A5AE30500D2DCF3 /* MoviePlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePlayingViewController.h; sourceTree = "<group>"; };
-		A6807DC01A5AE30500D2DCF3 /* MoviePlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePlayingViewController.m; sourceTree = "<group>"; };
+		A6807DC31A5FBEE500D2DCF3 /* SeatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeatViewController.h; sourceTree = "<group>"; };
+		A6807DC41A5FBEE500D2DCF3 /* SeatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeatViewController.m; sourceTree = "<group>"; };
+		A6807DC91A60050300D2DCF3 /* NoMoviesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoMoviesCollectionViewCell.h; sourceTree = "<group>"; };
+		A6807DCA1A60050300D2DCF3 /* NoMoviesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoMoviesCollectionViewCell.m; sourceTree = "<group>"; };
+		A6807DCC1A60343000D2DCF3 /* Seat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seat.h; sourceTree = "<group>"; };
+		A6807DCD1A60343000D2DCF3 /* Seat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seat.m; sourceTree = "<group>"; };
 		A689619C1A29EF6300DC7E87 /* MoviesOwl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesOwl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68961A01A29EF6300DC7E87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A68961A11A29EF6300DC7E87 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -77,10 +79,7 @@
 		A68961B81A29EF6300DC7E87 /* MoviesOwlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesOwlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68961BD1A29EF6300DC7E87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A68961BE1A29EF6300DC7E87 /* MoviesOwlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesOwlTests.m; sourceTree = "<group>"; };
-		A68961CC1A29F89800DC7E87 /* MovieListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieListTableViewCell.h; path = ../MovieListTableViewCell.h; sourceTree = "<group>"; };
-		A68961CD1A29F89800DC7E87 /* MovieListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieListTableViewCell.m; path = ../MovieListTableViewCell.m; sourceTree = "<group>"; };
-		A68961CF1A29F9AE00DC7E87 /* MovieListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieListTableViewController.h; sourceTree = "<group>"; };
-		A68961D01A29F9AE00DC7E87 /* MovieListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieListTableViewController.m; sourceTree = "<group>"; };
+		A6C2CB2B1A614E0300E5C630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainTest.storyboard; sourceTree = "<group>"; };
 		E99DCF395EEDE0707CABF9EE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,8 +122,10 @@
 		A6807DAA1A59490300D2DCF3 /* Sessions */ = {
 			isa = PBXGroup;
 			children = (
-				A6807DA41A5945D900D2DCF3 /* SessionsTableViewController.h */,
-				A6807DA51A5945D900D2DCF3 /* SessionsTableViewController.m */,
+				A6807DCC1A60343000D2DCF3 /* Seat.h */,
+				A6807DCD1A60343000D2DCF3 /* Seat.m */,
+				A6807DC31A5FBEE500D2DCF3 /* SeatViewController.h */,
+				A6807DC41A5FBEE500D2DCF3 /* SeatViewController.m */,
 			);
 			name = Sessions;
 			sourceTree = "<group>";
@@ -132,8 +133,6 @@
 		A6807DAE1A5949A200D2DCF3 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				A6807DBF1A5AE30500D2DCF3 /* MoviePlayingViewController.h */,
-				A6807DC01A5AE30500D2DCF3 /* MoviePlayingViewController.m */,
 				A6807DAB1A59499B00D2DCF3 /* MovieTableViewController.h */,
 				A6807DAC1A59499B00D2DCF3 /* MovieTableViewController.m */,
 				A6807DA71A59468B00D2DCF3 /* SessionTableViewCell.h */,
@@ -145,10 +144,12 @@
 		A6807DAF1A5949AF00D2DCF3 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				A68961CC1A29F89800DC7E87 /* MovieListTableViewCell.h */,
-				A68961CD1A29F89800DC7E87 /* MovieListTableViewCell.m */,
-				A68961CF1A29F9AE00DC7E87 /* MovieListTableViewController.h */,
-				A68961D01A29F9AE00DC7E87 /* MovieListTableViewController.m */,
+				A6807DB31A5A74D900D2DCF3 /* MoviesListCollectionViewController.h */,
+				A6807DB41A5A74D900D2DCF3 /* MoviesListCollectionViewController.m */,
+				A6807DB61A5A756500D2DCF3 /* MoviesListCollectionViewCell.h */,
+				A6807DB71A5A756500D2DCF3 /* MoviesListCollectionViewCell.m */,
+				A6807DC91A60050300D2DCF3 /* NoMoviesCollectionViewCell.h */,
+				A6807DCA1A60050300D2DCF3 /* NoMoviesCollectionViewCell.m */,
 			);
 			name = Movies;
 			sourceTree = "<group>";
@@ -156,12 +157,12 @@
 		A6807DC21A5AE83300D2DCF3 /* Cinema */ = {
 			isa = PBXGroup;
 			children = (
-				A6807D9C1A58D0E800D2DCF3 /* CinemaListTableViewCell.m */,
 				A661E8241A2C99E90064AE56 /* HeaderTableViewCell.h */,
 				A661E8251A2C99E90064AE56 /* HeaderTableViewCell.m */,
 				A6807D981A58CFD900D2DCF3 /* CinemaListTableViewController.h */,
 				A6807D991A58CFD900D2DCF3 /* CinemaListTableViewController.m */,
 				A6807D9B1A58D0E800D2DCF3 /* CinemaListTableViewCell.h */,
+				A6807D9C1A58D0E800D2DCF3 /* CinemaListTableViewCell.m */,
 			);
 			name = Cinema;
 			sourceTree = "<group>";
@@ -190,17 +191,14 @@
 			isa = PBXGroup;
 			children = (
 				A6807DB91A5A7B4000D2DCF3 /* Main.storyboard */,
+				A6C2CB2A1A614E0300E5C630 /* MainTest.storyboard */,
 				A6807DBC1A5A88F300D2DCF3 /* HeaderCollectionReusableView.h */,
 				A6807DBD1A5A88F300D2DCF3 /* HeaderCollectionReusableView.m */,
 				A667EB9C1A2CA79A00DE5ADE /* ApiManager.h */,
 				A667EB9D1A2CA79A00DE5ADE /* ApiManager.m */,
-				A6807DAF1A5949AF00D2DCF3 /* Movies */,
 				A68961A31A29EF6300DC7E87 /* AppDelegate.h */,
 				A68961A41A29EF6300DC7E87 /* AppDelegate.m */,
-				A6807DB61A5A756500D2DCF3 /* MoviesListCollectionViewCell.h */,
-				A6807DB71A5A756500D2DCF3 /* MoviesListCollectionViewCell.m */,
-				A6807DB31A5A74D900D2DCF3 /* MoviesListCollectionViewController.h */,
-				A6807DB41A5A74D900D2DCF3 /* MoviesListCollectionViewController.m */,
+				A6807DAF1A5949AF00D2DCF3 /* Movies */,
 				A6807DAE1A5949A200D2DCF3 /* Movie */,
 				A6807DAA1A59490300D2DCF3 /* Sessions */,
 				A6807DC21A5AE83300D2DCF3 /* Cinema */,
@@ -321,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6C2CB2C1A614E0300E5C630 /* MainTest.storyboard in Resources */,
 				A661E8171A2C8CCF0064AE56 /* owlicon.png in Resources */,
 				A6807DBB1A5A7B4000D2DCF3 /* Main.storyboard in Resources */,
 				A68961B31A29EF6300DC7E87 /* LaunchScreen.xib in Resources */,
@@ -375,20 +374,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A68961D11A29F9AE00DC7E87 /* MovieListTableViewController.m in Sources */,
 				A6807DB51A5A74D900D2DCF3 /* MoviesListCollectionViewController.m in Sources */,
-				A6807DC11A5AE30500D2DCF3 /* MoviePlayingViewController.m in Sources */,
 				A661E8261A2C99E90064AE56 /* HeaderTableViewCell.m in Sources */,
 				A6807D9A1A58CFD900D2DCF3 /* CinemaListTableViewController.m in Sources */,
 				A68961A51A29EF6300DC7E87 /* AppDelegate.m in Sources */,
 				A6807DAD1A59499B00D2DCF3 /* MovieTableViewController.m in Sources */,
+				A6807DCE1A60343000D2DCF3 /* Seat.m in Sources */,
 				A667EB9E1A2CA79A00DE5ADE /* ApiManager.m in Sources */,
-				A6807DA61A5945D900D2DCF3 /* SessionsTableViewController.m in Sources */,
+				A6807DC51A5FBEE500D2DCF3 /* SeatViewController.m in Sources */,
 				A6807DBE1A5A88F300D2DCF3 /* HeaderCollectionReusableView.m in Sources */,
 				A6807DA91A59468B00D2DCF3 /* SessionTableViewCell.m in Sources */,
-				A68961CE1A29F89800DC7E87 /* MovieListTableViewCell.m in Sources */,
 				A6807D9D1A58D0E800D2DCF3 /* CinemaListTableViewCell.m in Sources */,
 				A6807DB81A5A756500D2DCF3 /* MoviesListCollectionViewCell.m in Sources */,
+				A6807DCB1A60050300D2DCF3 /* NoMoviesCollectionViewCell.m in Sources */,
 				A68961A21A29EF6300DC7E87 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +424,14 @@
 				A68961B21A29EF6300DC7E87 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		A6C2CB2A1A614E0300E5C630 /* MainTest.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6C2CB2B1A614E0300E5C630 /* Base */,
+			);
+			name = MainTest.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

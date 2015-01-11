@@ -17,6 +17,10 @@
                         success:(void (^)(NSArray *movies))success
                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+- (void)getShowing :(int) showID
+                   success:(void (^)(NSArray *seats))success
+                   failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 - (void)getCinemas:(void (^)(NSArray *movies))success
           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
