@@ -86,11 +86,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviesOwl/MovieTableViewController.m"
-            timestampString = "442680853.825702"
+            timestampString = "442686426.331905"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "-prepareForSegue:sender:"
             landmarkType = "5">
          </BreakpointContent>

@@ -84,9 +84,12 @@
     
     self.moviePlayingSynopsis.preferredMaxLayoutWidth = self.view.frame.size.width - 20;
     self.moviePlayingSynopsis.text = [self.movie objectForKey:@"synopsis"];
+
+    
 NSString *synopsis = [self.movie objectForKey:@"synopsis"];
     NSLog(@"view width %f", self.view.frame.size.width);
     self.moviePlayingDirector.text = director;
+    self.moviePlayingDirector.preferredMaxLayoutWidth = self.view.frame.size.width - 20;
     self.moviePlayingCasts.text = [self.movie objectForKey:@"cast"];
     self.moviePlayingCasts.preferredMaxLayoutWidth = self.view.frame.size.width - 20;
     
