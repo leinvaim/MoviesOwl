@@ -32,15 +32,17 @@
         //[self.view setNeedsDisplay];
         [self loadSeats];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"It failed");
+        NSLog(@"Getting seats failed");
     }];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.edgesForExtendedLayout = UIRectEdgeNone;
 
+    // Do any additional setup after loading the view.
+    //self.navigationController.navigationBar.translucent = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.sessionTime.text = [NSString stringWithFormat:@" Today's Show at %@", self.showtime];
     [self loadSeatData];
 
 
@@ -60,8 +62,16 @@
     CGFloat width = (seatSize.width - seatLength -1 ) / seatLength;
     CGFloat height = width;
     CGFloat xPosition = self.view.frame.origin.x + padding/2;
-    CGFloat yPosition =self.navigationController.navigationBar.frame.size.height + height + 1;
+    //navbar height becomes 0 after adding background, so add 44px (navbar height)
+    CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
+    NSLog(@"navbar height %f", navBarHeight);
+    if (navBarHeight == 0) {
+        navBarHeight = 44;
+        NSLog(@"navbar after height %f", navBarHeight);
+    }
+    CGFloat yPosition = navBarHeight + height + 1;
     NSLog(@"origin %f", self.navigationController.navigationBar.frame.size.height);
+    
     NSLog(@"frame width %f", width);
     NSLog(@"frame height %f", height);
     NSLog(@"x pos %f", xPosition);
@@ -108,6 +118,30 @@
     [self presentViewController:webViewController animated:YES completion:NULL];
 }
 
+
+//- (void)setBackgroundImageAsMoviePoster {
+//  //  NSURL *url = [NSURL URLWithString:[self.movie objectForKey:@"poster"]];
+//    
+//    self.view.backgroundColor = [UIColor whiteColor];
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//        // NSData *imageData = [NSData dataWithContentsOfURL:url];
+//        
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            // Update the UI
+//            //http://stackoverflow.com/questions/19432773/creating-a-blur-effect-in-ios7
+//            
+//            // UIImage *image = [UIImage imageWithData:imageData];
+//            UIImageView *background = [[UIImageView alloc] initWithImage:self.backgroundImage];
+//            UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//            UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+//            effectView.frame = self.view.frame;
+//            [background addSubview:effectView];
+//            
+//            [self.view addSubview:background];
+//        });
+//    });
+//}
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 //{
 //    if ([segue.identifier isEqualToString:@"showBooking"]) {

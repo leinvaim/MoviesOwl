@@ -16,6 +16,7 @@
 @interface MovieTableViewController ()
 @property (strong,nonatomic) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) NSMutableArray *seats;
+@property (nonatomic, strong) NSString *dte;
 @end
 
 @implementation MovieTableViewController
@@ -159,15 +160,15 @@ NSString *synopsis = [self.movie objectForKey:@"synopsis"];
     
     self.tableView.backgroundColor = [UIColor whiteColor];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:url];
+       // NSData *imageData = [NSData dataWithContentsOfURL:url];
         
         
         dispatch_async(dispatch_get_main_queue(), ^{
             // Update the UI
             //http://stackoverflow.com/questions/19432773/creating-a-blur-effect-in-ios7
             
-            UIImage *image = [UIImage imageWithData:imageData];
-            UIImageView *background = [[UIImageView alloc] initWithImage:image];
+           // UIImage *image = [UIImage imageWithData:imageData];
+            UIImageView *background = [[UIImageView alloc] initWithImage:self.backgroundImage];
             UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
             UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
             effectView.frame = self.tableView.frame;
@@ -213,14 +214,14 @@ NSString *synopsis = [self.movie objectForKey:@"synopsis"];
     NSLog(@"showing is %@", showing);
     NSNumber *startTime = [showing objectForKey:@"start_time"];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[startTime doubleValue]];
-    NSLog(@"date %ld %@", (long)startTime, date);
+    NSLog(@"date test%ld %@", (long)startTime, date);
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
 //    [dateFormatter setDateFormat:@"MMM dd, HH:mm"];
         [dateFormatter setDateFormat:@"h:mm a"];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Australia/Brisbane"]];
-    NSString *dte=[dateFormatter stringFromDate:date];
-        NSLog(@"date %@", dte);
-    cell.session.text = dte;
+     self.dte=[dateFormatter stringFromDate:date];
+        NSLog(@"date %@", self.dte);
+    cell.session.text = self.dte;
     if ([[showing objectForKey:@"showing_type"]  isEqual: @"standard"]) {
         cell.showType.text = @"";
     }
@@ -228,7 +229,10 @@ NSString *synopsis = [self.movie objectForKey:@"synopsis"];
         cell.showType.text =[showing objectForKey:@"showing_type"];
     }
     
+    [cell.screenType setTextColor:[UIColor whiteColor]];
+    
     if ([[showing objectForKey:@"screen_type"]  isEqual: @"standard"]) {
+        
         cell.screenType.text = @"";
     }
     else if ([[showing objectForKey:@"screen_type"]  isEqual: @"vmax"]) {
@@ -249,54 +253,57 @@ NSString *synopsis = [self.movie objectForKey:@"synopsis"];
     __block int available = 0;
     __block int taken = 0;
 
-    
-    [[ApiManager sharedManager] getShowing:(showid) success:^(NSArray *seats) {
-        if([self.seats count] > indexPath.row) {
-            [self.seats replaceObjectAtIndex:indexPath.row withObject:seats];
-        } else {
-            [self.seats insertObject:seats atIndex:indexPath.row];
-        }
-
-        for (int i = 0; i < [seats count]; i++) {
-            for (int j = 0; j< [seats[i] count]; j++) {
-                if (![seats[i][j] isEqualToString:@"spacer"] ) {
-                    counter++;
-                }
-                if ([seats[i][j] isEqualToString:@"available"]) {
-                    available++;
-                }
-                if ([seats[i][j] isEqualToString:@"taken"]) {
-                    taken++;
-                }
-            }
-        }
-        if([[showing objectForKey:@"screen_type"] isEqual: @"standard"]) {
-            NSLog(@"seat count!!! %i", counter);
-            if(counter > 200) {
-                cell.screenType.text = @"Big";
-            } else if (counter > 150) {
-                cell.screenType.text = @"Medium";
+ //   if (![[self.seats objectAtIndex:indexPath.row] count]) {
+        [[ApiManager sharedManager] getShowing:(showid) success:^(NSArray *seats) {
+            if([self.seats count] > indexPath.row) {
+                [self.seats replaceObjectAtIndex:indexPath.row withObject:seats];
             } else {
-                cell.screenType.text = @"Small";
+                [self.seats insertObject:seats atIndex:indexPath.row];
             }
-
-        }
-        int percentTaken =(int)((float)taken / (float)counter * 100.0);
-        if(percentTaken > 80) {
-            cell.seatCapacity.text = [NSString stringWithFormat:@"Full"] ;
-        } else if(percentTaken > 30) {
-            cell.seatCapacity.text = [NSString stringWithFormat:@"Almost full"] ;
-        } else {
-            cell.seatCapacity.text = [NSString stringWithFormat:@"%i%% Full", percentTaken] ;
-        }
-
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"It failed");
-    }];
+         
+            for (int i = 0; i < [seats count]; i++) {
+                for (int j = 0; j< [seats[i] count]; j++) {
+                    if (![seats[i][j] isEqualToString:@"spacer"] ) {
+                        counter++;
+                    }
+                    if ([seats[i][j] isEqualToString:@"available"]) {
+                        available++;
+                    }
+                    if ([seats[i][j] isEqualToString:@"taken"]) {
+                        taken++;
+                    }
+                }
+            }
+            if([[showing objectForKey:@"screen_type"] isEqual: @"standard"]) {
+                NSLog(@"seat count!!! %i", counter);
+                if(counter > 200) {
+                    cell.screenType.text = @"Big";
+                } else if (counter > 150) {
+                    cell.screenType.text = @"Medium";
+                } else {
+                    cell.screenType.text = @"Small";
+                }
+                
+            }
+            int percentTaken =(int)((float)taken / (float)counter * 100.0);
+            if(percentTaken > 80) {
+                cell.seatCapacity.text = [NSString stringWithFormat:@"Full"] ;
+            } else if(percentTaken > 30) {
+                cell.seatCapacity.text = [NSString stringWithFormat:@"Almost full"] ;
+            } else {
+                cell.seatCapacity.text = [NSString stringWithFormat:@"%i%% Full", percentTaken] ;
+            }
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"It failed");
+        }];
+ //   }
+    
     
 
-    
+
+
      return cell;
 }
 
@@ -313,8 +320,32 @@ NSString *synopsis = [self.movie objectForKey:@"synopsis"];
         seatView.session = showing;
         seatView.seatsData = [self.seats objectAtIndex:path.row];
         NSLog(@"seats data %@", seatView.seatsData);
+        seatView.movie = self.movie;
         seatView.title = [self.movie objectForKey:@"title"];
-        seatView.movieTitle.text = [self.movie objectForKey:@"title"];
+
+        
+        NSNumber *startTime = [showing objectForKey:@"start_time"];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:[startTime doubleValue]];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+        [dateFormatter setDateFormat:@"h:mm a"];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Australia/Brisbane"]];
+        self.dte=[dateFormatter stringFromDate:date];
+        seatView.showtime = self.dte;
+    
+        UIImageView *background = [[UIImageView alloc] initWithImage:self.backgroundImage];
+        background.frame = self.view.frame;
+        UIVisualEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        effectView.frame = self.view.frame;
+        [background addSubview:effectView];
+        [seatView.view addSubview:background ];
+        [seatView.view sendSubviewToBack:background];
+        
+        
+
+        
+        
+        
     }
 }
 /*

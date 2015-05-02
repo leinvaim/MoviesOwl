@@ -19,4 +19,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *moviePlayingRating;
 
 @property (nonatomic, strong) NSDictionary *movie;
+@property (nonatomic, strong) UIImage *backgroundImage;
 @end

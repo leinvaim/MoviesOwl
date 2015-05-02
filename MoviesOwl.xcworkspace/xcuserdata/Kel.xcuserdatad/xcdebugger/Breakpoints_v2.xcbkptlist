@@ -38,6 +38,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "-[ApiManager manager]"
                   moduleName = "MoviesOwl"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Kel/Documents/Xcode%20Project/MoviesOwl/MoviesOwl/ApiManager.m"
                   timestampString = "442026591.650554"
                   startingColumnNumber = "9223372036854775807"
@@ -52,6 +53,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "-[ApiManager setManager:]"
                   moduleName = "MoviesOwl"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Kel/Documents/Xcode%20Project/MoviesOwl/MoviesOwl/ApiManager.m"
                   timestampString = "442026591.650802"
                   startingColumnNumber = "9223372036854775807"
@@ -86,12 +88,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviesOwl/MovieTableViewController.m"
-            timestampString = "442686426.331905"
+            timestampString = "446173533.999434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
             landmarkName = "-prepareForSegue:sender:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviesOwl/SelectedMovieTableViewController.m"
+            timestampString = "446181038.960469"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

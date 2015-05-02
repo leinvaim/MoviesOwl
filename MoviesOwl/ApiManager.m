@@ -44,8 +44,8 @@
                   success:(void (^)(NSArray *movies))success
                   failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
- 
-//    [self.manager GET:[NSString stringWithFormat:@"cinemas/%i/movies?starting_after=1420887623", cinemaId]
+    
+ //   [self.manager GET:[NSString stringWithFormat:@"cinemas/%i/movies?starting_after=1424395697", cinemaId]
     [self.manager GET:[NSString stringWithFormat:@"cinemas/%i/movies", cinemaId]
          parameters:nil
             success:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -17,6 +17,7 @@
 #import "MovieTableViewController.h"
 #import "HeaderCollectionReusableView.h"
 #import "NoMoviesCollectionViewCell.h"
+#import "SelectedMovieTableViewController.h"
 @import UIKit;
 
 @interface MoviesListCollectionViewController ()
@@ -67,6 +68,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation
@@ -140,6 +143,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
         return noCell;
     }
+    
+    //movies available
     else {
         
     
@@ -173,24 +178,25 @@ static NSString * const reuseIdentifier = @"Cell";
     else {
         [cell.rating setBackgroundColor:[UIColor colorWithRed:255/255.0f green:0/255.0f blue:4/255.0f alpha:0.7f]];
     }
-    
-//    CGRect finalCellFrame = cell.frame;
-//    //check the scrolling direction to verify from which side of the screen the cell should come.
-//    CGPoint translation = [collectionView.panGestureRecognizer translationInView:collectionView.superview];
-//    if (translation.x > 0) {
-//        cell.frame = CGRectMake(finalCellFrame.origin.x - 1000, - 500.0f, 0, 0);
-//    } else {
-//        cell.frame = CGRectMake(finalCellFrame.origin.x + 1000, - 500.0f, 0, 0);
-//    }
-//    
-//    [UIView animateWithDuration:0.5f animations:^(void){
-//        cell.frame = finalCellFrame;
-//    }];
-    
+        
+
+        
+        
+//    //set time
+//        NSArray *sessions = [[movies objectForKey:@"showings"] objectForKey:@"data"];
+//        NSNumber *startTime = [sessions[0] objectForKey:@"start_time"];
+//        NSDate *startTimeDate = [NSDate dateWithTimeIntervalSince1970:[startTime doubleValue]];
+//        NSDate *now = [NSDate date];
+//
+//        
+//        NSTimeInterval timeDifference = [startTimeDate timeIntervalSinceDate:now];
+//        int blah = (int)timeDifference/60;
+//        NSLog(@"coming in %i minutes", blah);
+//        test.text = [NSString stringWithFormat:@" Coming in %i minutes", blah];
+
     return cell;
     }
 }
-
 
 
 
@@ -202,9 +208,11 @@ static NSString * const reuseIdentifier = @"Cell";
         NSIndexPath *path = [arr firstObject];
         NSLog(@"selected row %li", (long)path.row);
         
-        MovieTableViewController *movieView = [segue destinationViewController];
-  
-            movieView.movie = [self.movies objectAtIndex:path.row];
+        SelectedMovieTableViewController *movieView = [segue destinationViewController];
+        movieView.movie = [self.movies objectAtIndex:path.row];
+        movieView.cinema = self.cinema;
+        movieView.indexPathRow = path.row;
+        
         
 
         //         SessionsTableViewController *sessionView = [segue destinationViewController];

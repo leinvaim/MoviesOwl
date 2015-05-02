@@ -10,5 +10,6 @@
 
 @interface MoviesListCollectionViewController : UICollectionViewController
 
+
 @property (strong, nonatomic) NSDictionary *cinema;
 @end
