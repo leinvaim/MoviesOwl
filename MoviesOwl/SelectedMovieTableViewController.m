@@ -32,7 +32,6 @@
     [self setBackgroundImageAsMoviePoster];
     self.title =[self.movie objectForKey:@"title"];
     self.SectionTitles = @[@"", @"Ratings", @"Sessions", @"Runtime", @"Synopsis", @"Director", @"Casts", @"Review"];
-    
     //adding pull to refresh
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
@@ -86,6 +85,8 @@
         [posterCell.widePoster setImageWithURL:url];
         posterCell.selectedMovieTitle.text = [self.movie objectForKey:@"title"];
         self.widePosterForSynopsis = posterCell.widePoster;
+        posterCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         
         
     }
@@ -94,6 +95,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"ratingCell" forIndexPath:indexPath];
         RatingTableViewCell* ratingCell = (RatingTableViewCell *)cell;
         [self setupRottenTomatoesRating:ratingCell];
+        ratingCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     else if (indexPath.section == 2) {
         NSLog(@"Section 2 created");
@@ -101,12 +103,14 @@
         MovieSessionTableViewCell* sessionCell = (MovieSessionTableViewCell *)cell;
         NSInteger numOfSessions = [[[self.movie objectForKey:@"showings"] objectForKey:@"data"] count];
         sessionCell.numOfSessions.text = [NSString stringWithFormat:@"%li Sessions Available", (long)numOfSessions];
+        sessionCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     else if (indexPath.section == 3) {
         NSLog(@"Section 3 created");
         cell = [tableView dequeueReusableCellWithIdentifier:@"runtimeCell" forIndexPath:indexPath];
         RuntimeTableViewCell* runtimeCell = (RuntimeTableViewCell *)cell;
         runtimeCell.selectedRunTime.text = [NSString stringWithFormat:@" Run Time : %@ minutes",[self.movie objectForKey:@"run_time"]];
+        runtimeCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
     }
     else if (indexPath.section == 4) {
@@ -115,12 +119,14 @@
         SynopsisTableViewCell* synopsisCell = (SynopsisTableViewCell *)cell;
         synopsisCell.selectedSynopsis.text = [self.movie objectForKey:@"synopsis"];
         //synopsisCell.selectedSynopsis.preferredMaxLayoutWidth = self.view.frame.size.width - 20;
+        synopsisCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     else if (indexPath.section == 5) {
         NSLog(@"Section 5 created");
         cell = [tableView dequeueReusableCellWithIdentifier:@"directorCell" forIndexPath:indexPath];
         DirectorTableViewCell* directorCell = (DirectorTableViewCell *)cell;
         directorCell.directors.text = [self.movie objectForKey:@"director"];
+        directorCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
     }
     else if (indexPath.section == 6) {
@@ -128,6 +134,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"castCell" forIndexPath:indexPath];
         CastTableViewCell* castCell= (CastTableViewCell *)cell;
         castCell.selectedCast.text = [self.movie objectForKey:@"cast"];
+        castCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
     }
     

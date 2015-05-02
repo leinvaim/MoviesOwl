@@ -222,6 +222,8 @@ NSString *synopsis = [self.movie objectForKey:@"synopsis"];
      self.dte=[dateFormatter stringFromDate:date];
         NSLog(@"date %@", self.dte);
     cell.session.text = self.dte;
+    cell.screenType.text = @"";
+    [cell.screenType setTextColor:[UIColor whiteColor]];
     if ([[showing objectForKey:@"showing_type"]  isEqual: @"standard"]) {
         cell.showType.text = @"";
     }
@@ -229,10 +231,7 @@ NSString *synopsis = [self.movie objectForKey:@"synopsis"];
         cell.showType.text =[showing objectForKey:@"showing_type"];
     }
     
-    [cell.screenType setTextColor:[UIColor whiteColor]];
-    
     if ([[showing objectForKey:@"screen_type"]  isEqual: @"standard"]) {
-        
         cell.screenType.text = @"";
     }
     else if ([[showing objectForKey:@"screen_type"]  isEqual: @"vmax"]) {
@@ -274,7 +273,7 @@ NSString *synopsis = [self.movie objectForKey:@"synopsis"];
                     }
                 }
             }
-            if([[showing objectForKey:@"screen_type"] isEqual: @"standard"]) {
+            if([cell.screenType.text isEqual: @""]) {
                 NSLog(@"seat count!!! %i", counter);
                 if(counter > 200) {
                     cell.screenType.text = @"Big";
