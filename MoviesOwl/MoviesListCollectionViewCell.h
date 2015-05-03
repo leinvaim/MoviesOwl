@@ -11,5 +11,6 @@
 @interface MoviesListCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *rating;
 @property (weak, nonatomic) IBOutlet UIImageView *poster;
+@property (weak, nonatomic) IBOutlet UILabel *time;
 
 @end

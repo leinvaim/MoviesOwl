@@ -10,6 +10,9 @@
 		859D4BABEDC3B392C1318D9D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E99DCF395EEDE0707CABF9EE /* libPods.a */; };
 		A61A9F1D1A96D23B002D9632 /* SynopsisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A61A9F1C1A96D23B002D9632 /* SynopsisViewController.m */; };
 		A61A9F211A96F68E002D9632 /* GenreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A61A9F201A96F68E002D9632 /* GenreTableViewCell.m */; };
+		A63FFD851AF5C984001C7925 /* MoviesHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A63FFD841AF5C984001C7925 /* MoviesHeaderCollectionReusableView.m */; };
+		A63FFD881AF5DF42001C7925 /* TimePickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A63FFD871AF5DF42001C7925 /* TimePickerTableViewController.m */; };
+		A63FFD8B1AF5DFB4001C7925 /* TimePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A63FFD8A1AF5DFB4001C7925 /* TimePickerTableViewCell.m */; };
 		A661E8171A2C8CCF0064AE56 /* owlicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A661E8161A2C8CCF0064AE56 /* owlicon.png */; };
 		A661E8261A2C99E90064AE56 /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A661E8251A2C99E90064AE56 /* HeaderTableViewCell.m */; };
 		A66619ED1A94BE2000733377 /* SelectedMovieTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A66619EC1A94BE2000733377 /* SelectedMovieTableViewController.m */; };
@@ -58,6 +61,12 @@
 		A61A9F1C1A96D23B002D9632 /* SynopsisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynopsisViewController.m; sourceTree = "<group>"; };
 		A61A9F1F1A96F68E002D9632 /* GenreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenreTableViewCell.h; sourceTree = "<group>"; };
 		A61A9F201A96F68E002D9632 /* GenreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenreTableViewCell.m; sourceTree = "<group>"; };
+		A63FFD831AF5C984001C7925 /* MoviesHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesHeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		A63FFD841AF5C984001C7925 /* MoviesHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesHeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		A63FFD861AF5DF42001C7925 /* TimePickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerTableViewController.h; sourceTree = "<group>"; };
+		A63FFD871AF5DF42001C7925 /* TimePickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerTableViewController.m; sourceTree = "<group>"; };
+		A63FFD891AF5DFB4001C7925 /* TimePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerTableViewCell.h; sourceTree = "<group>"; };
+		A63FFD8A1AF5DFB4001C7925 /* TimePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerTableViewCell.m; sourceTree = "<group>"; };
 		A661E8161A2C8CCF0064AE56 /* owlicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = owlicon.png; sourceTree = "<group>"; };
 		A661E8241A2C99E90064AE56 /* HeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderTableViewCell.h; sourceTree = "<group>"; };
 		A661E8251A2C99E90064AE56 /* HeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderTableViewCell.m; sourceTree = "<group>"; };
@@ -213,6 +222,8 @@
 		A6807DAF1A5949AF00D2DCF3 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				A63FFD831AF5C984001C7925 /* MoviesHeaderCollectionReusableView.h */,
+				A63FFD841AF5C984001C7925 /* MoviesHeaderCollectionReusableView.m */,
 				A6807DB31A5A74D900D2DCF3 /* MoviesListCollectionViewController.h */,
 				A6807DB41A5A74D900D2DCF3 /* MoviesListCollectionViewController.m */,
 				A6807DB61A5A756500D2DCF3 /* MoviesListCollectionViewCell.h */,
@@ -261,6 +272,10 @@
 			children = (
 				A6807DB91A5A7B4000D2DCF3 /* Main.storyboard */,
 				A6C2CB2A1A614E0300E5C630 /* MainTest.storyboard */,
+				A63FFD891AF5DFB4001C7925 /* TimePickerTableViewCell.h */,
+				A63FFD8A1AF5DFB4001C7925 /* TimePickerTableViewCell.m */,
+				A63FFD861AF5DF42001C7925 /* TimePickerTableViewController.h */,
+				A63FFD871AF5DF42001C7925 /* TimePickerTableViewController.m */,
 				A6661A061A94BFB000733377 /* Selected Movie */,
 				A6807DBC1A5A88F300D2DCF3 /* HeaderCollectionReusableView.h */,
 				A6807DBD1A5A88F300D2DCF3 /* HeaderCollectionReusableView.m */,
@@ -448,6 +463,8 @@
 				A66619F01A94BEAF00733377 /* PosterTableViewCell.m in Sources */,
 				A66619FC1A94BF1300733377 /* SynopsisTableViewCell.m in Sources */,
 				A66619ED1A94BE2000733377 /* SelectedMovieTableViewController.m in Sources */,
+				A63FFD851AF5C984001C7925 /* MoviesHeaderCollectionReusableView.m in Sources */,
+				A63FFD8B1AF5DFB4001C7925 /* TimePickerTableViewCell.m in Sources */,
 				A61A9F211A96F68E002D9632 /* GenreTableViewCell.m in Sources */,
 				A6807DB51A5A74D900D2DCF3 /* MoviesListCollectionViewController.m in Sources */,
 				A66619F61A94BEEE00733377 /* MovieSessionTableViewCell.m in Sources */,
@@ -460,6 +477,7 @@
 				A6807DCE1A60343000D2DCF3 /* Seat.m in Sources */,
 				A667EB9E1A2CA79A00DE5ADE /* ApiManager.m in Sources */,
 				A6807DC51A5FBEE500D2DCF3 /* SeatViewController.m in Sources */,
+				A63FFD881AF5DF42001C7925 /* TimePickerTableViewController.m in Sources */,
 				A6661A051A94BF4900733377 /* CriticsTableViewCell.m in Sources */,
 				A6807DBE1A5A88F300D2DCF3 /* HeaderCollectionReusableView.m in Sources */,
 				A6807DA91A59468B00D2DCF3 /* SessionTableViewCell.m in Sources */,

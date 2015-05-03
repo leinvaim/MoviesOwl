@@ -18,6 +18,8 @@
 #import "HeaderCollectionReusableView.h"
 #import "NoMoviesCollectionViewCell.h"
 #import "SelectedMovieTableViewController.h"
+#import "MBProgressHUD.h"
+#import "MoviesHeaderCollectionReusableView.h"
 @import UIKit;
 
 @interface MoviesListCollectionViewController ()
@@ -45,12 +47,22 @@ static NSString * const reuseIdentifier = @"Cell";
     int cinemaID = [stringID intValue];
     NSLog(@"Debug: Getting posts");
 
-    [[ApiManager sharedManager] getMoviesInCinema:(cinemaID) success:^(NSArray *movies) {
-        self.movies = movies;
-        [self.collectionView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"It failed");
-    }];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        // Do something...
+        [[ApiManager sharedManager] getMoviesInCinema:(cinemaID) success:^(NSArray *movies) {
+            self.movies = movies;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
+            [self.collectionView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"It failed");
+        }];
+    });
+    
+
 
     
     // Uncomment the following line to preserve selection between presentations
@@ -183,16 +195,16 @@ static NSString * const reuseIdentifier = @"Cell";
         
         
 //    //set time
-//        NSArray *sessions = [[movies objectForKey:@"showings"] objectForKey:@"data"];
-//        NSNumber *startTime = [sessions[0] objectForKey:@"start_time"];
-//        NSDate *startTimeDate = [NSDate dateWithTimeIntervalSince1970:[startTime doubleValue]];
-//        NSDate *now = [NSDate date];
-//
-//        
-//        NSTimeInterval timeDifference = [startTimeDate timeIntervalSinceDate:now];
-//        int blah = (int)timeDifference/60;
-//        NSLog(@"coming in %i minutes", blah);
-//        test.text = [NSString stringWithFormat:@" Coming in %i minutes", blah];
+        NSArray *sessions = [[movies objectForKey:@"showings"] objectForKey:@"data"];
+        NSNumber *startTime = [sessions[0] objectForKey:@"start_time"];
+        NSDate *startTimeDate = [NSDate dateWithTimeIntervalSince1970:[startTime doubleValue]];
+        NSDate *now = [NSDate date];
+
+        
+        NSTimeInterval timeDifference = [startTimeDate timeIntervalSinceDate:now];
+        int blah = (int)timeDifference/60;
+        NSLog(@"coming in %i minutes", blah);
+        cell.time.text = [NSString stringWithFormat:@"in %i minutes", blah];
 
     return cell;
     }
