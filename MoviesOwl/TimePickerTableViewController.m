@@ -45,6 +45,9 @@
     NSInteger hour = [dateComponents hour];
     NSInteger minute = [dateComponents minute];
     int max = 21;
+    if (hour < 10) {
+        return 23;
+    }
     if (minute > 30) {
         return (max - hour)*2 -1;
     }
@@ -55,7 +58,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TimePickerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timePickerCell" forIndexPath:indexPath];
     NSArray *timeSlots = [[self class] timeSlots];
-    cell.timePicker.text = timeSlots[indexPath.row];
+    NSDate* now = [NSDate date];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *dateComponents = [gregorian components:(NSCalendarUnitHour  | NSCalendarUnitMinute) fromDate:now];
+    NSInteger hour = [dateComponents hour];
+    NSInteger minute = [dateComponents minute];
+    NSInteger index = 0;
+    NSLog(@"hour %li", hour);
+    if (hour < 10) {
+        index = 0;
+    }
+    else if (minute > 30) {
+        index = 23 - (21 - hour)*2 -1;
+    }
+    else {
+        index = 23 - (21 - hour)*2;
+    }
+    cell.timePicker.text = timeSlots[indexPath.row + index];
     
     return cell;
 }

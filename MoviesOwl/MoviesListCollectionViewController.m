@@ -20,6 +20,8 @@
 #import "SelectedMovieTableViewController.h"
 #import "MBProgressHUD.h"
 #import "MoviesHeaderCollectionReusableView.h"
+#import "ADLivelyCollectionView.h"
+
 @import UIKit;
 
 @interface MoviesListCollectionViewController ()
@@ -47,6 +49,9 @@ static NSString * const reuseIdentifier = @"Cell";
     int cinemaID = [stringID intValue];
     NSLog(@"Debug: Getting posts");
 
+//    ADLivelyCollectionView * livelyCollectionView = (ADLivelyCollectionView *)self.collectionView;
+//    [livelyCollectionView registerNib:[UINib nibWithNibName:@"LDCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+////    livelyCollectionView.initialCellTransformBlock = ADLivelyTransformFan;
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
@@ -80,8 +85,6 @@ static NSString * const reuseIdentifier = @"Cell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 /*
 #pragma mark - Navigation

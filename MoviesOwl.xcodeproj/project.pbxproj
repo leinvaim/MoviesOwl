@@ -13,6 +13,7 @@
 		A63FFD851AF5C984001C7925 /* MoviesHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A63FFD841AF5C984001C7925 /* MoviesHeaderCollectionReusableView.m */; };
 		A63FFD881AF5DF42001C7925 /* TimePickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A63FFD871AF5DF42001C7925 /* TimePickerTableViewController.m */; };
 		A63FFD8B1AF5DFB4001C7925 /* TimePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A63FFD8A1AF5DFB4001C7925 /* TimePickerTableViewCell.m */; };
+		A650C06B1AF6693400A9213C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A650C06A1AF6693400A9213C /* QuartzCore.framework */; };
 		A661E8171A2C8CCF0064AE56 /* owlicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A661E8161A2C8CCF0064AE56 /* owlicon.png */; };
 		A661E8261A2C99E90064AE56 /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A661E8251A2C99E90064AE56 /* HeaderTableViewCell.m */; };
 		A66619ED1A94BE2000733377 /* SelectedMovieTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A66619EC1A94BE2000733377 /* SelectedMovieTableViewController.m */; };
@@ -67,6 +68,7 @@
 		A63FFD871AF5DF42001C7925 /* TimePickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerTableViewController.m; sourceTree = "<group>"; };
 		A63FFD891AF5DFB4001C7925 /* TimePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerTableViewCell.h; sourceTree = "<group>"; };
 		A63FFD8A1AF5DFB4001C7925 /* TimePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerTableViewCell.m; sourceTree = "<group>"; };
+		A650C06A1AF6693400A9213C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A661E8161A2C8CCF0064AE56 /* owlicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = owlicon.png; sourceTree = "<group>"; };
 		A661E8241A2C99E90064AE56 /* HeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderTableViewCell.h; sourceTree = "<group>"; };
 		A661E8251A2C99E90064AE56 /* HeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderTableViewCell.m; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A650C06B1AF6693400A9213C /* QuartzCore.framework in Frameworks */,
 				859D4BABEDC3B392C1318D9D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +159,7 @@
 		9B0D2A2FB137CAB75CE80601 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A650C06A1AF6693400A9213C /* QuartzCore.framework */,
 				E99DCF395EEDE0707CABF9EE /* libPods.a */,
 			);
 			name = Frameworks;

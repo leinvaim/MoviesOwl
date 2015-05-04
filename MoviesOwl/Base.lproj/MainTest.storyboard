@@ -166,6 +166,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerView" id="FKl-Xc-d0d" customClass="MoviesHeaderCollectionReusableView">
+                            <rect key="frame" x="0.0" y="64" width="600" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies After" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORV-u2-6qP">
@@ -177,15 +178,29 @@
                                         <rect key="frame" x="18" y="8" width="173" height="34"/>
                                     </variation>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rs-dj-76P">
+                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                        <rect key="frame" x="281" y="10" width="46" height="30"/>
+                                    </variation>
+                                    <connections>
+                                        <segue destination="iTe-6g-0ph" kind="push" id="TiF-41-sT7"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <variation key="default">
                                 <mask key="subviews">
                                     <exclude reference="ORV-u2-6qP"/>
+                                    <exclude reference="3rs-dj-76P"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="subviews">
                                     <include reference="ORV-u2-6qP"/>
+                                    <include reference="3rs-dj-76P"/>
                                 </mask>
                             </variation>
                         </collectionReusableView>
@@ -208,6 +223,7 @@
             <objects>
                 <tableViewController id="iTe-6g-0ph" customClass="TimePickerTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" id="WxS-01-6vQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -250,7 +266,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYF-5l-fsx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1404" y="915.75"/>
+            <point key="canvasLocation" x="1256" y="1173"/>
         </scene>
         <!--Cinema List Table View Controller-->
         <scene sceneID="b0A-SP-wM6">

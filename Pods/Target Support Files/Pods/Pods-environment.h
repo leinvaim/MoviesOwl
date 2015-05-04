@@ -6,6 +6,12 @@
 // project.
 
 
+// ADLivelyCollectionView
+#define COCOAPODS_POD_AVAILABLE_ADLivelyCollectionView
+#define COCOAPODS_VERSION_MAJOR_ADLivelyCollectionView 1
+#define COCOAPODS_VERSION_MINOR_ADLivelyCollectionView 0
+#define COCOAPODS_VERSION_PATCH_ADLivelyCollectionView 0
+
 // AFNetworking
 #define COCOAPODS_POD_AVAILABLE_AFNetworking
 #define COCOAPODS_VERSION_MAJOR_AFNetworking 2
